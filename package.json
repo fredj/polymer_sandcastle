@@ -1,0 +1,10 @@
+{
+  "name": "polymer_sandcastle",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "polybuild": "^1.0.5"
+  }
+}

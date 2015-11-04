@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>Polymer Sandcastle</title>
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+
+    <link rel="import" href="imports.html">
+    <link rel="stylesheet" href="css/app.css" type="text/css">
+
+  </head>
+  <body class="fullbleed">
+    <template is="dom-bind" id="app">
+      <paper-drawer-panel force-narrow>
+        <div drawer>
+          <paper-menu>
+            <paper-item>Item 1</paper-item>
+            <paper-item>Item 2</paper-item>
+            <paper-item>Item 3</paper-item>
+            <paper-submenu>
+              <paper-item class="menu-trigger">Topics</paper-item>
+              <paper-menu class="menu-content">
+                <paper-item>Topic 1</paper-item>
+                <paper-item>Topic 2</paper-item>
+                <paper-item>Topic 3</paper-item>
+              </paper-menu>
+            </paper-submenu>
+          </paper-menu>
+        </div>
+        <paper-header-panel class="main" main mode="waterfall">
+          <paper-toolbar>
+            <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+          </paper-toolbar>
+          <div class="layout vertical center-justified content">
+            <app-card></app-card>
+            <app-card expanded></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+          </div>
+        </paper-header-panel>
+      </paper-drawer-panel>
+
+    </template>
+    <script src="js/app.js"></script>
+  </body>
+</html>

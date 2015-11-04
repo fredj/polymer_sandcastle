@@ -1,0 +1,30 @@
+<dom-module id="app-distance-to">
+  <template>
+    <span>The distance is [[formatDistance(distance)]]m</span>
+  </template>
+  <script>
+    Polymer({
+      is: 'app-distance-to',
+      properties: {
+        longitude: {
+          type: Number
+        },
+        latitude: {
+          type: Number
+        },
+        distance: {
+          type: Number,
+          notify: true,
+          reflectToAttribute: true,
+          readOnly: true
+        }
+      },
+      ready: function() {
+        this._setDistance(1354.123);
+      },
+      formatDistance: function(distance) {
+        return distance.toFixed();
+      }
+    });
+  </script>
+</dom-module>

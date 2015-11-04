@@ -1,0 +1,95 @@
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/ol3-polymer/ol3-import.html">
+
+// FIXME: move imports here
+
+<dom-module id="app-card">
+  <template>
+    <style>
+      .map {
+        height: 240px;
+        background-color: #ccc;
+      }
+      .map-container {
+        display: none;
+      }
+      .expanded-layout .map-container {
+        display: block;
+      }
+
+    </style>
+    <paper-card class$="[[_expandedClass(expanded)]]">
+      <div class="card-content">
+        card content
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+      <div class="card-content map-container">
+        <div class="map" id="map"></div>
+      </div>
+      <div class="card-actions horizontal layout end-justified">
+        <paper-icon-button on-tap="toggleDetails" icon="[[_expandedIcon(expanded)]]"></paper-icon-button>
+      </div>
+    </paper-card>
+  </template>
+  <script>
+    Polymer({
+      is: 'app-card',
+      properties: {
+        map: {
+          type: Object
+        },
+        expanded: {
+          type: Boolean,
+          value: false,
+          notify: true,
+          observer: '_onExpandedChanged'
+        }
+      },
+      ready: function() {
+        console.log('I am ready', this.$.map);
+      },
+
+      attached: function() {
+        this.map = new ol.Map({
+          layers: [
+            new ol.layer.Tile({
+              source: new ol.source.TileJSON({
+                url: 'https://api.tiles.mapbox.com/v3/camptocamp.map-qrf4xb23.jsonp?secure'
+              })
+            })
+          ],
+          controls: [],
+          target: this.$.map,
+          view: new ol.View({
+            center: [738600, 5863800],
+            zoom: 13
+          })
+        });
+      },
+
+      detached: function() {
+        this.map.setTarget(null);
+      },
+
+      toggleDetails: function(event) {
+        this.expanded = !this.expanded;
+      },
+
+      _expandedClass: function(expanded) {
+        return expanded ? 'expanded-layout' : '';
+      },
+
+      _expandedIcon: function(expanded) {
+        return expanded ? 'expand-less' : 'expand-more';
+      },
+
+      _onExpandedChanged: function(expand) {
+        if (this.map) {
+          this.map.updateSize();
+        }
+      }
+    });
+  </script>
+</dom-module>

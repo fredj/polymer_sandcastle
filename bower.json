@@ -1,0 +1,16 @@
+{
+  "name": "polymer_sandcastle",
+  "private": true,
+  "dependencies": {
+    "ol3-polymer": "fredj/ol3-polymer#~3.11.2",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#~1.0.4",
+    "paper-drawer-panel": "PolymerElements/paper-drawer-panel#~1.0.4",
+    "paper-header-panel": "PolymerElements/paper-header-panel#~1.0.5",
+    "paper-toolbar": "PolymerElements/paper-toolbar#~1.0.4",
+    "paper-icon-button": "PolymerElements/paper-icon-button#~1.0.5",
+    "paper-card": "PolymerElements/paper-card#~1.0.7",
+    "paper-toggle-button": "PolymerElements/paper-toggle-button#~1.0.11",
+    "paper-menu": "PolymerElements/paper-menu#~1.1.1",
+    "paper-item": "PolymerElements/paper-item#~1.0.6"
+  }
+}
